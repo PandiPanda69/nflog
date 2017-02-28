@@ -59,7 +59,7 @@ func New(conf *Config) (*NFLog, error) {
 		}
 
 		// Set CopyMeta only
-		err = n.sendNFConfigMode(g, 0x40000000)
+		err = n.sendNFConfigMode(g, conf.PayloadLength)
 		if err != nil {
 			syscall.Close(n.fd)
 			return nil, err
